@@ -27,56 +27,47 @@ const dummyUrunler = [
   { 
     id: "4595/335/300", 
     urunAdi: "Çizgili Viskoz - Keten Pantolon", 
-    tur: "Alt Giyim", 
-    imageUrl: "/images/pantolon.jpg"
+    tur: "Alt Giyim"
   },
   { 
     id: "1195/430/515", 
     urunAdi: "Liyosel Karışımlı Gömlek", 
-    tur: "Üst Giyim", 
-    imageUrl: "/images/gomlek.jpg"
+    tur: "Üst Giyim"
   },
   { 
     id: "1195/326/505", 
     urunAdi: "Liyosel Karışımlı Pantolon", 
-    tur: "Alt Giyim", 
-    imageUrl: "/images/pantolon2.jpg"
+    tur: "Alt Giyim"
   },
   { 
     id: "0761/300/806", 
     urunAdi: "Relaxed Fit Fermuarlı Polo T-shirt", 
-    tur: "Üst Giyim", 
-    imageUrl: "/images/polo.jpg"
+    tur: "Üst Giyim"
   },
   { 
     id: "0761/412/251", 
     urunAdi: "Basic Kontrast Rib T-shirt", 
-    tur: "Üst Giyim", 
-    imageUrl: "/images/tshirt.jpg"
+    tur: "Üst Giyim"
   },
   { 
     id: "1437/402/104", 
     urunAdi: "Keten Viskoz Bermuda Şort", 
-    tur: "Alt Giyim", 
-    imageUrl: "/images/sort.jpg"
+    tur: "Alt Giyim"
   },
   { 
     id: "1564/300/420", 
     urunAdi: "Konforlu Takım Blazer", 
-    tur: "Dış Giyim", 
-    imageUrl: "/images/blazer.jpg"
+    tur: "Dış Giyim"
   },
   { 
     id: "2308/520/120", 
     urunAdi: "Kalın Tabanlı Ayakkabı", 
-    tur: "Ayakkabı", 
-    imageUrl: "/images/ayakkabi.jpg"
+    tur: "Ayakkabı"
   },
   { 
     id: "2639/520/400", 
     urunAdi: "Günlük Deri Makosen", 
-    tur: "Ayakkabı", 
-    imageUrl: "/images/makosen.jpg"
+    tur: "Ayakkabı"
   }
 ];
 

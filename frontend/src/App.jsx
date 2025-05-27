@@ -1,26 +1,46 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import io from 'socket.io-client'
 
 const socket = io('http://localhost:3000')
 
+// Ürün ID'lerine göre görsel eşleştirmesi
+const productImages = {
+  "4595/335/300": "/images/pantolon.jpg",
+  "1195/430/515": "/images/gomlek.jpg",
+  "1195/326/505": "/images/pantolon2.jpg",
+  "0761/300/806": "/images/polo.jpg",
+  "0761/412/251": "/images/tshirt.jpg",
+  "1437/402/104": "/images/sort.jpg",
+  "1564/300/420": "/images/blazer.jpg",
+  "2308/520/120": "/images/ayakkabi.jpg",
+  "2639/520/400": "/images/makosen.jpg"
+}
+
 function App() {
   const [data, setData] = useState([])
   const [lastAddedUrun, setLastAddedUrun] = useState(null)
+  const audioRef = useRef(new Audio('/sounds/click.mp3'))
 
   useEffect(() => {
-    // İlk bağlantıda verileri al
     socket.on('initialData', (initialData) => {
-      setData(initialData)
-      if (initialData.length > 0) {
-        setLastAddedUrun(initialData[0])
+      // Verileri ters sırala (en yeni en üstte)
+      const sortedData = [...initialData].reverse()
+      setData(sortedData)
+      if (sortedData.length > 0) {
+        setLastAddedUrun(sortedData[0])
       }
     })
 
-    // Veri güncellemelerini dinle
     socket.on('dataUpdate', (newData) => {
-      setData(newData)
-      if (newData.length > 0) {
-        setLastAddedUrun(newData[0])
+      // Yeni veriyi en üste ekle
+      const updatedData = [...newData].reverse()
+      setData(updatedData)
+      if (updatedData.length > 0) {
+        setLastAddedUrun(updatedData[0])
+        // Yeni ürün eklendiğinde ses çal
+        audioRef.current.play().catch(error => {
+          console.log('Ses çalma hatası:', error)
+        })
       }
     })
 
@@ -80,7 +100,7 @@ function App() {
               <div className="urun-content">
                 <div className="urun-image">
                   <img 
-                    src={lastAddedUrun.imageUrl} 
+                    src={productImages[lastAddedUrun.id]} 
                     alt={lastAddedUrun.urunAdi}
                   />
                 </div>

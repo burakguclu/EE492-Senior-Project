@@ -12,7 +12,7 @@ function App() {
     socket.on('initialData', (initialData) => {
       setData(initialData)
       if (initialData.length > 0) {
-        setLastAddedUrun(initialData[initialData.length - 1])
+        setLastAddedUrun(initialData[0])
       }
     })
 
@@ -20,7 +20,7 @@ function App() {
     socket.on('dataUpdate', (newData) => {
       setData(newData)
       if (newData.length > 0) {
-        setLastAddedUrun(newData[newData.length - 1])
+        setLastAddedUrun(newData[0])
       }
     })
 
@@ -51,26 +51,25 @@ function App() {
       <div className="content">
         <div className="table-section">
           <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Ürün ID</th>
-                  <th>Ürün Adı</th>
-                  <th>Tür</th>
-                  <th>Giriş Tarihi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.id}</td>
-                    <td>{item.urunAdi}</td>
-                    <td>{item.tur}</td>
-                    <td>{item.girisTarihi}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="table-header">
+              <h2>Ürün Listesi</h2>
+              <span className="total-count">{data.length} Ürün</span>
+            </div>
+            <div className="table-body">
+              {data.map((item, index) => (
+                <div 
+                  key={index} 
+                  className={`product-card ${item === lastAddedUrun ? 'highlight' : ''}`}
+                >
+                  <div className="product-info">
+                    <div className="product-id">{item.id}</div>
+                    <div className="product-name">{item.urunAdi}</div>
+                    <div className="product-type">{item.tur}</div>
+                  </div>
+                  <div className="product-date">{item.girisTarihi}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         
@@ -78,17 +77,22 @@ function App() {
           {lastAddedUrun ? (
             <div className="urun-detail">
               <h2>Son Eklenen Ürün</h2>
-              <div className="urun-image">
-                <img 
-                  src={lastAddedUrun.imageUrl} 
-                  alt={lastAddedUrun.urunAdi}
-                />
-              </div>
-              <div className="urun-info">
-                <p><strong>Ürün ID:</strong> {lastAddedUrun.id}</p>
-                <p><strong>Ürün Adı:</strong> {lastAddedUrun.urunAdi}</p>
-                <p><strong>Tür:</strong> {lastAddedUrun.tur}</p>
-                <p><strong>Giriş Tarihi:</strong> {lastAddedUrun.girisTarihi}</p>
+              <div className="urun-content">
+                <div className="urun-image">
+                  <img 
+                    src={lastAddedUrun.imageUrl} 
+                    alt={lastAddedUrun.urunAdi}
+                  />
+                </div>
+                <div className="urun-info">
+                  <div className="info-group">
+                    <h3>Ürün Bilgileri</h3>
+                    <p><strong>Ürün ID:</strong> {lastAddedUrun.id}</p>
+                    <p><strong>Ürün Adı:</strong> {lastAddedUrun.urunAdi}</p>
+                    <p><strong>Tür:</strong> {lastAddedUrun.tur}</p>
+                    <p><strong>Giriş Tarihi:</strong> {lastAddedUrun.girisTarihi}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (

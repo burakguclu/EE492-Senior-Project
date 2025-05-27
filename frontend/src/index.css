@@ -32,6 +32,7 @@ h1 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .content {
@@ -43,50 +44,116 @@ h1 {
 
 .table-section {
   flex: 1;
-  overflow: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
 }
 
 .table-container {
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.table-header {
+  padding: 1.5rem;
+  background: #2c3e50;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-th, td {
+.table-header h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.total-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.table-body {
+  flex: 1;
+  overflow-y: auto;
   padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #eee;
 }
 
-th {
-  background-color: #f8f9fa;
+.product-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card.highlight {
+  background-color: #e3f2fd;
+  border-color: #90caf9;
+  animation: highlight 2s ease-out;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-id {
+  font-family: monospace;
+  color: #2196f3;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-name {
   font-weight: 500;
   color: #2c3e50;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  margin-bottom: 0.25rem;
 }
 
-tr:hover {
-  background-color: #f8f9fa;
+.product-type {
+  font-size: 0.9rem;
+  color: #666;
 }
 
-tr.selected {
-  background-color: #e3f2fd;
+.product-date {
+  font-size: 0.85rem;
+  color: #999;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #bbdefb;
+  }
+  100% {
+    background-color: #e3f2fd;
+  }
 }
 
 .detail-section {
   flex: 1;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -105,40 +172,76 @@ tr.selected {
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
   font-weight: 500;
+  text-align: center;
+}
+
+.urun-content {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  overflow: hidden;
 }
 
 .urun-image {
-  margin-bottom: 1.5rem;
-  text-align: center;
   flex-shrink: 0;
-}
-
-.urun-image img {
-  max-width: 100%;
-  max-height: 300px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 375px;
+  height: 562.5px;
+  background: #f8f9fa;
   border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.urun-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.urun-image img:hover {
+  transform: scale(1.02);
+}
+
 .urun-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.info-group {
   background-color: #f8f9fa;
   padding: 1.5rem;
   border-radius: 8px;
-  flex: 1;
-  overflow: auto;
+  height: 100%;
 }
 
-.urun-info p {
+.info-group h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+.info-group p {
   margin-bottom: 1rem;
   font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
-.urun-info strong {
+.info-group p:hover {
+  background-color: #e9ecef;
+}
+
+.info-group strong {
   color: #2c3e50;
   margin-right: 0.5rem;
+  font-weight: 500;
 }
 
 .no-selection {
@@ -150,6 +253,8 @@ tr.selected {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .summary {

@@ -26,57 +26,57 @@ app.get('/test', (req, res) => {
 const dummyUrunler = [
   { 
     id: "4595/335/300", 
-    urunAdi: "ÇİZGİLİ VİSKOZ - KETEN PANTOLON", 
+    urunAdi: "Çizgili Viskoz - Keten Pantolon", 
     tur: "Alt Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/df1c/54a2/6fc1441d91fc/1ad832787c3b/04595335300-e1/04595335300-e1.jpg?ts=1746689707719&w=750"
+    imageUrl: "/images/pantolon.jpg"
   },
   { 
     id: "1195/430/515", 
-    urunAdi: "LİYOSEL KARIŞIMLI GÖMLEK", 
+    urunAdi: "Liyosel Karışımlı Gömlek", 
     tur: "Üst Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/cd21/c58b/23eb487aafb7/80c98ed2a4e5/01195318515-e1/01195318515-e1.jpg?ts=1747929711819&w=750"
+    imageUrl: "/images/gomlek.jpg"
   },
   { 
     id: "1195/326/505", 
-    urunAdi: "LİYOSEL KARIŞIMLI PANTOLON", 
+    urunAdi: "Liyosel Karışımlı Pantolon", 
     tur: "Alt Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/709f/da71/ad2d4e578389/c8430d8c1430/01195432505-e1/01195432505-e1.jpg?ts=1740472742012&w=750"
+    imageUrl: "/images/pantolon2.jpg"
   },
   { 
     id: "0761/300/806", 
-    urunAdi: "RELAXED FİT FERMUARLI POLO T-SHIRT", 
+    urunAdi: "Relaxed Fit Fermuarlı Polo T-shirt", 
     tur: "Üst Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/d92b/58fb/68364e559f82/c41be089daf3/00761300806-e1/00761300806-e1.jpg?ts=1747725217293&w=750"
+    imageUrl: "/images/polo.jpg"
   },
   { 
     id: "0761/412/251", 
-    urunAdi: "BASIC KONTRAST RIB T-SHIRT", 
+    urunAdi: "Basic Kontrast Rib T-shirt", 
     tur: "Üst Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/4388/72f3/ee004de7ae21/2b949645d680/00761412251-e1/00761412251-e1.jpg?ts=1737452354752&w=750"
+    imageUrl: "/images/tshirt.jpg"
   },
   { 
     id: "1437/402/104", 
-    urunAdi: "KETEN VİSKOZ BERMUDA ŞORT", 
+    urunAdi: "Keten Viskoz Bermuda Şort", 
     tur: "Alt Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/87ae/0197/c38341389bae/206542be58af/01437402104-e1/01437402104-e1.jpg?ts=1740672199640&w=750"
+    imageUrl: "/images/sort.jpg"
   },
   { 
     id: "1564/300/420", 
-    urunAdi: "KONFORLU TAKIM BLAZER", 
+    urunAdi: "Konforlu Takım Blazer", 
     tur: "Dış Giyim", 
-    imageUrl: "https://static.zara.net/assets/public/5eef/02db/ced74559a752/0493e0df1e9c/01564300420-e1/01564300420-e1.jpg?ts=1722508889836&w=750"
+    imageUrl: "/images/blazer.jpg"
   },
   { 
     id: "2308/520/120", 
-    urunAdi: "KALIN TABANLI AYAKKABI", 
+    urunAdi: "Kalın Tabanlı Ayakkabı", 
     tur: "Ayakkabı", 
-    imageUrl: "https://static.zara.net/assets/public/f3a3/e713/e60e4aacaed0/8cb21fabfabf/12308520120-e1/12308520120-e1.jpg?ts=1731410327575&w=750"
+    imageUrl: "/images/ayakkabi.jpg"
   },
   { 
     id: "2639/520/400", 
-    urunAdi: "GÜNLÜK DERİ MAKOSEN", 
+    urunAdi: "Günlük Deri Makosen", 
     tur: "Ayakkabı", 
-    imageUrl: "https://static.zara.net/assets/public/a0c8/1311/7dc642fdae79/6184c571728b/12639520400-e1/12639520400-e1.jpg?ts=1736767323698&w=750"
+    imageUrl: "/images/makosen.jpg"
   }
 ];
 
